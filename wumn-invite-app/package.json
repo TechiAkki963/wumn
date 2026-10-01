@@ -1,0 +1,13 @@
+{
+  "name": "wumn-warm-invite-studio",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Warm personalised WUMN welcome card and outreach message generator with editable copy and fashion-editorial typography.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

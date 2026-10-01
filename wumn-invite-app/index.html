@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fbfaf8" />
+  <meta name="description" content="Create warm, personalised WUMN welcome cards and outreach messages for designers, boutiques and fashion labels." />
+  <title>WUMN · Warm Invite Studio</title>
+  <link rel="icon" type="image/png" href="assets/wumn-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup" aria-label="WUMN Invite Studio">
+        <img id="headerLogo" class="official-logo" src="assets/wumn-icon.png" alt="WUMN" />
+        <span id="headerLogoFallback" class="logo-fallback" aria-hidden="true">W</span>
+        <div class="brand-divider"></div>
+        <span class="studio-name">Warm Invite Studio</span>
+      </div>
+      <div class="topbar-note">Warm. Personal. Ready to share.</div>
+    </header>
+
+    <main class="workspace">
+      <section class="panel editor-panel" aria-labelledby="editor-title">
+        <div class="section-eyebrow">Create a warm WUMN welcome</div>
+        <h1 id="editor-title">Make every introduction feel considered.</h1>
+        <p class="intro-copy">
+          Add the client’s name and boutique or company name, choose one of WUMN’s three warm message styles, and create a personalised card plus a matching message for Instagram, WhatsApp or email.
+        </p>
+
+        <form id="inviteForm" class="invite-form" autocomplete="off">
+          <div class="field-grid two-col">
+            <label class="field">
+              <span>Client name</span>
+              <input id="clientName" name="clientName" type="text" value="Aarohi" placeholder="e.g. Aarohi" maxlength="45" />
+            </label>
+            <label class="field">
+              <span>Boutique / company</span>
+              <input id="brandName" name="brandName" type="text" value="The Loom Atelier" placeholder="e.g. The Loom Atelier" maxlength="55" />
+            </label>
+          </div>
+
+          <div class="field-grid two-col">
+            <label class="field">
+              <span>Business type</span>
+              <select id="businessType" name="businessType">
+                <option>Designer</option>
+                <option selected>Boutique</option>
+                <option>Fashion label</option>
+                <option>Accessories brand</option>
+                <option>Jewellery brand</option>
+                <option>Footwear brand</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Known for</span>
+              <input id="speciality" name="speciality" type="text" value="thoughtful, distinctive design" placeholder="e.g. handcrafted bags" maxlength="70" />
+            </label>
+          </div>
+
+          <div class="field-grid two-col">
+            <label class="field">
+              <span>WhatsApp number <em>optional</em></span>
+              <input id="phone" name="phone" type="tel" placeholder="e.g. 919876543210" inputmode="tel" />
+            </label>
+            <label class="field">
+              <span>Email <em>optional</em></span>
+              <input id="email" name="email" type="email" placeholder="name@boutique.com" />
+            </label>
+          </div>
+
+          <fieldset class="tone-fieldset">
+            <legend>Warm message style</legend>
+            <div class="segmented" role="radiogroup" aria-label="Warm message style">
+              <label><input type="radio" name="tone" value="warm" checked /><span>Warm Hello</span></label>
+              <label><input type="radio" name="tone" value="note" /><span>Little Note</span></label>
+              <label><input type="radio" name="tone" value="welcome" /><span>Simple Welcome</span></label>
+            </div>
+          </fieldset>
+
+          <details class="copy-tools">
+            <summary>Edit card & message wording</summary>
+            <p class="copy-help">Every line is editable. Use <code>{client}</code>, <code>{brand}</code> and <code>{speciality}</code> wherever you want the personalised details to appear.</p>
+
+            <div class="copy-field-grid">
+              <label class="field">
+                <span>Card opening</span>
+                <input id="cardKickerTemplate" type="text" maxlength="90" />
+              </label>
+              <label class="field">
+                <span>Card closing line</span>
+                <input id="cardEmphasisTemplate" type="text" maxlength="150" />
+              </label>
+            </div>
+
+            <label class="field copy-field">
+              <span>Card message</span>
+              <textarea id="cardBodyTemplate" rows="6"></textarea>
+            </label>
+
+            <div class="copy-field-grid">
+              <label class="field">
+                <span>Sign-off</span>
+                <input id="cardFooterLabelTemplate" type="text" maxlength="50" />
+              </label>
+              <label class="field">
+                <span>Footer note</span>
+                <input id="cardFooterNoteTemplate" type="text" maxlength="100" />
+              </label>
+            </div>
+
+            <label class="field copy-field">
+              <span>Outreach message template</span>
+              <textarea id="messageTemplate" rows="10"></textarea>
+            </label>
+
+            <div class="copy-actions">
+              <button id="resetCopyBtn" class="ghost-button" type="button">Restore selected style</button>
+              <span>Switching style loads that style’s default wording.</span>
+            </div>
+          </details>
+
+          <details class="logo-tools">
+            <summary>Logo settings</summary>
+            <p>The WUMN logo you supplied is bundled with this app, so card downloads no longer depend on an external website asset. You can still replace it for this session if needed.</p>
+            <label class="upload-control">
+              <input id="logoUpload" type="file" accept="image/svg+xml,image/png,image/jpeg,image/webp" />
+              <span>Choose another logo</span>
+            </label>
+            <span id="logoStatus" class="logo-status">Using included WUMN logo</span>
+          </details>
+        </form>
+
+        <div class="message-block">
+          <div class="message-heading-row">
+            <div>
+              <div class="section-eyebrow">Ready-to-send message</div>
+              <h2>Matching warm outreach</h2>
+            </div>
+            <div class="message-buttons">
+              <button id="refreshMessageBtn" class="ghost-button" type="button">Refresh from template</button>
+              <button id="copyMessageBtn" class="ghost-button" type="button">Copy message</button>
+            </div>
+          </div>
+          <textarea id="messageOutput" aria-label="Personalised WUMN welcome message"></textarea>
+          <p class="message-edit-note">You can also edit this final message directly before sending it.</p>
+          <div class="action-row">
+            <button id="whatsappBtn" class="primary-button" type="button">Open WhatsApp</button>
+            <button id="emailBtn" class="secondary-button" type="button">Open email</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel preview-panel" aria-labelledby="preview-title">
+        <div class="preview-heading">
+          <div>
+            <div class="section-eyebrow">Live preview</div>
+            <h2 id="preview-title">WUMN welcome card</h2>
+          </div>
+          <span class="format-badge">1080 × 1350 PNG</span>
+        </div>
+
+        <div class="card-stage">
+          <article id="inviteCard" class="invite-card" aria-label="Personalised WUMN welcome card">
+            <div class="card-orb orb-one"></div>
+            <div class="card-orb orb-two"></div>
+            <div class="card-topline">
+              <div class="card-brand">
+                <img id="cardLogo" class="card-logo-img" src="assets/wumn-logo.png" alt="WUMN" />
+                <span id="cardLogoFallback" class="card-logo-fallback">WUMN</span>
+              </div>
+              <span class="private-label">wumn.in</span>
+            </div>
+
+            <div class="card-content">
+              <p id="cardKicker" class="card-kicker">A warm hello from WUMN</p>
+              <h3 id="cardClientName">Aarohi</h3>
+              <p id="cardBrandName" class="card-company">The Loom Atelier</p>
+              <div class="hairline"></div>
+              <p id="cardBody" class="card-body"></p>
+              <p id="cardEmphasis" class="card-emphasis"></p>
+            </div>
+
+            <div class="card-footer">
+              <div>
+                <span id="cardFooterLabel" class="footer-label">With warmth</span>
+                <strong>Team WUMN</strong>
+              </div>
+              <div id="cardFooterNote" class="footer-note">Here’s to what you’re creating.</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="download-row">
+          <button id="downloadBtn" class="download-button" type="button">Download personalised card</button>
+          <p id="downloadHint" class="download-hint">Exports a social-ready 4:5 PNG.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>WUMN Warm Invite Studio</span>
+      <span>For designers, boutiques & fashion brands</span>
+    </footer>
+  </div>
+
+  <canvas id="exportCanvas" width="1080" height="1350" hidden></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
